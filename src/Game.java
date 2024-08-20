@@ -23,7 +23,7 @@ public class Game {
 
         do {
             showMenu();
-            System.out.print("Choose an option: ");
+            System.out.print("Choose an option from [1 to 5]: ");
             try {
                 option = scanner.nextInt();
             } catch (Exception e) {
