@@ -61,8 +61,16 @@ public class Player {
     }
 
     public void endGame() {
-        System.out.println("Game Over. Your pet's condition has reached a critical level.");
-        System.out.println(pet.toString());
+        if(pet != null){
+            if (pet.HungerLevel <= 0 || pet.HappinessLevel <= 0)
+            {
+                System.out.println("Game Over. Your pet's condition has reached a critical level.");
+                System.out.println(pet.toString());
+            }
+        }
+        exit(0);
+
+
         exit(0);
     }
 

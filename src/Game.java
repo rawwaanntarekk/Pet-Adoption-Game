@@ -19,7 +19,7 @@ public class Game {
     private void ChooseOption() {
 
         Scanner scanner = new Scanner(System.in);
-        int option = 0;
+        int option;
 
         do {
             showMenu();
@@ -41,7 +41,7 @@ public class Game {
 
             System.out.println();
 
-        } while (option != 5);
+        } while (true);
 
 
     }
