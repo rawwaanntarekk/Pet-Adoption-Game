@@ -26,7 +26,7 @@ public class Player {
             pet.IncreaseHungerLevel();
             pet.DecreaseHappinessLevel();
             System.out.println(pet.Name + " has been fed.");
-            CheckStatus();
+            CheckEndGame();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -41,13 +41,13 @@ public class Player {
             pet.IncreaseHappinessLevel();
             pet.DecreaseHungerLevel();
             System.out.println(pet.Name + " played and is happier now.");
-            CheckStatus();
+            CheckEndGame();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void CheckStatus() {
+    private void CheckEndGame() {
         try {
             if (pet == null)
                 throw new Exception("You must adopt a pet first.");
@@ -58,6 +58,16 @@ public class Player {
         }
 
 
+    }
+
+    public void CheckPetStatus() {
+        try {
+            if (pet == null)
+                throw new Exception("You must adopt a pet first.");
+            System.out.println(pet);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void endGame() {

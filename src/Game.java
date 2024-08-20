@@ -35,7 +35,7 @@ public class Game {
                 case 1 -> player.adoptPet();
                 case 2 -> player.feedPet();
                 case 3 -> player.playWithPet();
-                case 4 -> player.CheckStatus();
+                case 4 -> player.CheckPetStatus();
                 case 5 -> player.endGame();
             }
 
