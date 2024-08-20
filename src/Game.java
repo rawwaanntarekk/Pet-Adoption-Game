@@ -4,11 +4,11 @@ public class Game {
 
     Player player;
 
-    public Game(){
+    public Game() {
         player = new Player();
     }
 
-    public  void showMenu(){
+    private void showMenu() {
         System.out.println("1. Adopt a pet");
         System.out.println("2. Feed pet");
         System.out.println("3. Play with pet");
@@ -16,38 +16,37 @@ public class Game {
         System.out.println("5. End game");
     }
 
-    public void ChooseOption(){
+    private void ChooseOption() {
 
         Scanner scanner = new Scanner(System.in);
-        int option;
+        int option = 0;
 
-       do {
-           System.out.print("Please choose an option:");
-           option = scanner.nextInt();
-       } while (option < 1 || option > 5);
+        do {
+            showMenu();
+            System.out.print("Choose an option: ");
+            try {
+                option = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+                continue;
+            }
+            switch (option) {
+                case 1 -> player.adoptPet();
+                case 2 -> player.feedPet();
+                case 3 -> player.playWithPet();
+                case 4 -> player.CheckStatus();
+                case 5 -> player.endGame();
+            }
 
-        switch(option){
-            case 1:
-                player.adoptPet();
-                break;
-            case 2:
-                player.feedPet();
-                break;
-            case 3:
-                player.playWithPet();
-                break;
-            case 4:
-                player.checkPetStatus();
-                break;
-            case 5:
-                player.endGame();
-                break;
-        }
+            System.out.println();
+
+        } while (option != 5);
+
 
     }
 
-    public  void StartGame(){
-        showMenu();
+    public void StartGame() {
         ChooseOption();
 
     }
