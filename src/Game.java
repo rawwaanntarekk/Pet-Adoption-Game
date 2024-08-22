@@ -36,7 +36,7 @@ public class Game {
                 case 2 -> player.feedPet();
                 case 3 -> player.playWithPet();
                 case 4 -> player.CheckPetStatus();
-                case 5 -> player.endGame();
+                case 5 -> player.CheckEndGame();
             }
 
             System.out.println();

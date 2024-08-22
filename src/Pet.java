@@ -1,8 +1,24 @@
 public class Pet {
-    String Name;
-    int HungerLevel;
+    private final String Name;
 
-    int HappinessLevel;
+    private int HungerLevel;
+
+    private int HappinessLevel;
+
+    public String getName() {
+        return Name;
+    }
+
+    public int getHungerLevel() {
+        return HungerLevel;
+    }
+
+
+    public int getHappinessLevel() {
+        return HappinessLevel;
+    }
+
+
 
     public Pet(String name) {
         Name = name;

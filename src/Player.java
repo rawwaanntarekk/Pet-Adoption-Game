@@ -4,7 +4,7 @@ import static java.lang.System.exit;
 
 public class Player {
 
-    Pet pet;
+    private Pet pet;
 
     private String EnterName() {
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Player {
     public void adoptPet() {
         String name = EnterName();
         pet = new Pet(name);
-        System.out.println(pet.Name + " has been adopted.");
+        System.out.println(pet.getName() + " has been adopted.");
     }
 
     public void feedPet() {
@@ -24,15 +24,15 @@ public class Player {
             if (pet == null)
                 throw new Exception("You must adopt a pet first.");
 
-            if(pet.HungerLevel >= 90){
-                System.out.println(pet.Name + " is already full. You can feed it later.");
+            if(pet.getHungerLevel() >= 90){
+                System.out.println(pet.getName() + " is already full. You can feed it later.");
                 return;
             }
 
             pet.IncreaseHungerLevel();
             pet.DecreaseHappinessLevel();
 
-            System.out.println(pet.Name + " has been fed.");
+            System.out.println(pet.getName() + " has been fed.");
             CheckEndGame();
 
         } catch (Exception e) {
@@ -47,15 +47,15 @@ public class Player {
             if (pet == null)
                 throw new Exception("You must adopt a pet first.");
 
-            if(pet.HappinessLevel >= 90){
-                System.out.println(pet.Name + " is already happy. You can play with it later.");
+            if(pet.getHappinessLevel() >= 90){
+                System.out.println(pet.getName() + " is already happy. You can play with it later.");
                 return;
             }
 
             pet.IncreaseHappinessLevel();
             pet.DecreaseHungerLevel();
 
-            System.out.println(pet.Name + " played and is happier now.");
+            System.out.println(pet.getName() + " played and is happier now.");
             CheckEndGame();
 
         } catch (Exception e) {
@@ -63,18 +63,6 @@ public class Player {
         }
     }
 
-    private void CheckEndGame() {
-        try {
-            if (pet == null)
-                throw new Exception("You must adopt a pet first.");
-            if (pet.HungerLevel >= 100 || pet.HappinessLevel <= 0)
-                endGame();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
-    }
 
     public void CheckPetStatus() {
         try {
@@ -86,18 +74,18 @@ public class Player {
         }
     }
 
-    public void endGame() {
+    public void CheckEndGame() {
         if(pet != null){
-            if (pet.HungerLevel <= 0 || pet.HappinessLevel <= 0)
+            if (pet.getHungerLevel() <= 0 || pet.getHappinessLevel() <= 0)
             {
                 System.out.println("Game Over. Your pet's condition has reached a critical level.");
                 System.out.println(pet.toString());
+                exit(0);
             }
         }
-        exit(0);
 
 
-        exit(0);
+
     }
 
 }
