@@ -8,8 +8,14 @@ public class Player {
 
     private String EnterName() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please enter a name for your pet: ");
-        return scanner.nextLine();
+        String name;
+        do {
+            System.out.print("Enter a name for your pet: ");
+             name = scanner.nextLine();
+        } while (name.isEmpty());
+
+        return name;
+
     }
 
 
