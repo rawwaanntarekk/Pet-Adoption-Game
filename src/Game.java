@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Game {
 
-    Player player;
+    private final Player player;
 
     public Game() {
         player = new Player();
