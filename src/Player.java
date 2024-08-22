@@ -23,10 +23,18 @@ public class Player {
         try {
             if (pet == null)
                 throw new Exception("You must adopt a pet first.");
+
+            if(pet.HungerLevel >= 90){
+                System.out.println(pet.Name + " is already full. You can feed it later.");
+                return;
+            }
+
             pet.IncreaseHungerLevel();
             pet.DecreaseHappinessLevel();
+
             System.out.println(pet.Name + " has been fed.");
             CheckEndGame();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -38,10 +46,18 @@ public class Player {
         try {
             if (pet == null)
                 throw new Exception("You must adopt a pet first.");
+
+            if(pet.HappinessLevel >= 90){
+                System.out.println(pet.Name + " is already happy. You can play with it later.");
+                return;
+            }
+
             pet.IncreaseHappinessLevel();
             pet.DecreaseHungerLevel();
+
             System.out.println(pet.Name + " played and is happier now.");
             CheckEndGame();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
